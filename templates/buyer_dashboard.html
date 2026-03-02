@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Resource Marketplace</title>
+    <link rel="stylesheet" href="/static/buyer.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h2>Resource Marketplace</h2>
+            <div class="nav-links">
+                <span id="userDisplay"></span>
+                <button id="logoutBtn" class="btn-secondary">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li class="active" data-view="browse">Browse Resources</li>
+                <li data-view="my-resources">My Resources</li>
+                <li data-view="transactions">My Transactions</li>
+                
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Browse Resources View -->
+            <div id="browseView" class="view active">
+                <div class="view-header">
+                    <h2>Browse Digital Assets</h2>
+                    <div class="search-bar">
+                        <input type="text" id="searchInput" placeholder="Search resources...">
+                        <select id="categoryFilter">
+                            <option value="">All Categories</option>
+                            <option value="sticker">Sticker</option>
+                            <option value="neck tie">Neck Tie</option>
+                            <option value="dvd">DVD</option>
+                            <option value="cards">Cards</option>
+                        </select>
+                        <button id="searchBtn" class="btn-primary">Search</button>
+                    </div>
+                </div>
+                
+                <div id="resourcesGrid" class="resources-grid"></div>
+                <div id="loadingIndicator" class="loading" style="display: none;">Loading...</div>
+            </div>
+
+            <!-- My Resources View (Sellers only) -->
+            <div id="myResourcesView" class="view">
+                <div class="view-header">
+                    <h2>My Resources</h2>
+                    <button id="refreshMyResources" class="btn-secondary">Refresh</button>
+                </div>
+                <div id="myResourcesGrid" class="resources-grid"></div>
+            </div>
+
+            <!-- Transactions View -->
+            <div id="transactionsView" class="view">
+                <div class="view-header">
+                    <h2>Transaction History</h2>
+                </div>
+                <div id="transactionsList" class="transactions-list"></div>
+            </div>
+
+            <!-- Add Resource View (Sellers only) -->
+            <div id="addResourceView" class="view">
+                <div class="view-header">
+                    <h2>Add New Resource</h2>
+                </div>
+                
+                <form id="addResourceForm" class="resource-form">
+                    <div class="form-group">
+                        <label for="resourceName">Resource Name</label>
+                        <input type="text" id="resourceName" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="resourceDescription">Description</label>
+                        <textarea id="resourceDescription" name="description" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="resourceCategory">Category</label>
+                        <select id="resourceCategory" name="category" required>
+                            <option value="icon">Icon</option>
+                            <option value="script">Script</option>
+                            <option value="skin">Game Skin</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="resourcePrice">Price ($)</label>
+                        <input type="number" id="resourcePrice" name="price" step="0.01" min="0" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="resourceFile">File URL</label>
+                        <input type="url" id="resourceFile" name="file_url" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="resourceTags">Tags (comma-separated)</label>
+                        <input type="text" id="resourceTags" name="tags" placeholder="e.g., gaming, premium, vector">
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Add Resource</button>
+                </form>
+                
+                <div id="addResourceMessage" class="form-message" style="display: none;"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Purchase Modal -->
+    <div id="purchaseModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Confirm Purchase</h3>
+            <p id="purchaseResourceInfo"></p>
+            <div class="modal-actions">
+                <button id="confirmPurchase" class="btn-primary">Confirm</button>
+                <button id="cancelPurchase" class="btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/buyer.js"></script>
+</body>
+</html>

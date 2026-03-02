@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title><link rel="stylesheet" href="/static/admin.css">
+
+  <style>
+    .section { display:none; margin-top:20px; }
+    .subsection { display:none; margin-top:15px; }
+  </style>
+</head>
+<body>
+
+<h2>Admin Dashboard</h2>
+
+<!-- MAIN BUTTONS -->
+<button onclick="openSection('userSection')">Users</button>
+<button onclick="openSection('resourceSection')">Resources</button>
+<button onclick="openSection('transactionSection')">Transactions</button>
+
+
+<!-- ================= USERS SECTION ================= -->
+<div id="userSection" class="section">
+
+  <h3>User Management</h3>
+
+  <button onclick="openSub('viewUsers')">View All Users</button>
+  <button onclick="openSub('addUser')">Add User</button>
+  <button onclick="openSub('deleteUser')">Delete User</button>
+
+
+  <!-- VIEW USERS -->
+  <div id="viewUsers" class="subsection">
+    <h4>All Users</h4>
+    <button onclick="loadUsers()">Load Users</button>
+    <div id="userList"></div>
+  </div>
+
+
+  <!-- ADD USER -->
+  <div id="addUser" class="subsection">
+    <h4>Add New User</h4>
+
+    <input type="text" id="newUsername" placeholder="Username"><br><br>
+    <input type="password" id="newPassword" placeholder="Password"><br><br>
+
+    <select id="newRole">
+      <option value="seller">seller</option>
+      <option value="buyer">buyer</option>
+      
+    </select><br><br>
+
+    <button onclick="addUser()">Register User</button>
+
+    <p id="addMsg"></p>
+  </div>
+
+
+  <!-- DELETE USER -->
+  <div id="deleteUser" class="subsection">
+    <h4>Delete User</h4>
+
+    <input type="text" id="deleteUsername" placeholder="Enter Username"><br><br>
+
+    <button onclick="deleteUser()">Delete</button>
+
+    <p id="deleteMsg"></p>
+  </div>
+
+</div>
+
+<div id="resourceSection" class="admin-section" style="display:none;">
+
+    <h2>Manage Resources</h2>
+
+    <!-- ACTION BUTTONS -->
+    <div class="action-buttons">
+        <button onclick="showViewResources()">View All Resources</button>
+        <button onclick="showAddResource()">Add Resource</button>
+        <button onclick="showDeleteResource()">Delete Resource</button>
+    </div>
+
+
+    <!-- VIEW ALL RESOURCES -->
+    <div id="viewResourcesBox" class="box" style="display:none;">
+        <h3>All Resources</h3>
+        <button onclick="loadResourcesAdmin()">Load Resources</button>
+        <div id="resourceList"></div>
+    </div>
+
+
+    <!-- ADD RESOURCE -->
+    <div id="addResourceBox" class="box" style="display:none;">
+        <h3>Add New Resource</h3>
+
+        <input type="text" id="resName" placeholder="Resource Name">
+        <input type="text" id="resCategory" placeholder="Category">
+        <input type="number" id="resPrice" placeholder="Price">
+
+        <button onclick="addResourceAdmin()">Add Resource</button>
+
+        <p id="addResMsg"></p>
+    </div>
+
+
+    <!-- DELETE RESOURCE -->
+    <div id="deleteResourceBox" class="box" style="display:none;">
+        <h3>Delete Resource</h3>
+
+        <input type="number" id="deleteResId" placeholder="Enter Resource ID">
+
+        <button onclick="deleteResourceAdmin()">Delete</button>
+
+        <p id="deleteResMsg"></p>
+    </div>
+
+</div>
+<div id="transactionSection" class="admin-section" style="display:none;">
+
+    <h2>All Transactions</h2>
+
+    <button onclick="loadTransactionsAdmin()">View Transactions</button>
+
+    <div id="transactionList"></div>
+
+</div>
+<!-- Empty Sections for now -->
+
+
+
+<script src="/static/admin.js"></script>
+
+</body>
+</html>

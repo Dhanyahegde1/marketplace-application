@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Seller Dashboard</title>
+    <link rel="stylesheet" href="/static/seller.css">
+</head>
+<body>
+
+<h2 class="title">Seller Dashboard</h2>
+
+<div class="add-form">
+    <input type="text" id="name" placeholder="Resource Name">
+    <input type="text" id="category" placeholder="Category">
+    <input type="number" id="price" placeholder="Price">
+
+    <button onclick="addResource()">Add Resource</button>
+</div>
+  <!-- DELETE RESOURCE -->
+    <div class="card">
+        <h3>Delete Resource</h3>
+        
+        <input type="number" id="deleteRid" placeholder="Enter Resource ID">
+
+        <button class="delete-btn" onclick="deleteResource()">Delete Resource</button>
+    </div>
+
+    <!-- VIEW -->
+    <div class="grid" id="resourceGrid"></div>
+
+</div>
+<div class="grid" id="resourceGrid"></div>
+
+<script src="/static/seller.js"></script>
+
+</body>
+</html>

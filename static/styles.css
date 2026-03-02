@@ -1,0 +1,280 @@
+/* Modern Pinterest-inspired CSS with Purple Gradient Theme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 50%, #4C1D95 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Animated background elements */
+body::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 25%),
+        radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 22%);
+    pointer-events: none;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 32px;
+    text-align: center;
+    width: 380px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+        0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 10;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 30px 50px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+}
+
+/* Decorative elements for the card */
+.card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #C084FC, #A855F7, #7C3AED);
+    border-radius: 34px;
+    z-index: -1;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+    opacity: 0.6;
+}
+
+h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #8B5CF6, #6D28D9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 14px 16px;
+    margin: 8px 0;
+    border-radius: 16px;
+    border: 2px solid #f0f0f0;
+    background: #fafafa;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: #8B5CF6;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+}
+
+select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238B5CF6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px;
+    padding-right: 48px;
+}
+
+select option {
+    background: white;
+    color: #333;
+    padding: 12px;
+}
+
+button {
+    background: linear-gradient(135deg, #8B5CF6, #6D28D9);
+    color: white;
+    padding: 14px 24px;
+    border: none;
+    width: 100%;
+    border-radius: 16px;
+    margin-top: 16px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(109, 40, 217, 0.3);
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #7C3AED, #5B21B6);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(109, 40, 217, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.link-btn {
+    background: transparent;
+    background-image: none;
+    color: #8B5CF6;
+    border: none;
+    cursor: pointer;
+    margin-top: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+    text-decoration-color: rgba(139, 92, 246, 0.3);
+}
+
+.link-btn:hover {
+    background: transparent;
+    color: #6D28D9;
+    transform: translateY(-1px);
+    text-decoration-color: #8B5CF6;
+    box-shadow: none;
+}
+
+.link-btn::before {
+    display: none;
+}
+
+/* Add Pinterest-inspired floating elements */
+.card::after {
+    content: '✦';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 60px;
+    color: rgba(255, 255, 255, 0.3);
+    transform: rotate(15deg);
+    pointer-events: none;
+}
+
+/* Custom placeholder style */
+input::placeholder {
+    color: #a0a0a0;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .card {
+        width: 90%;
+        padding: 2rem;
+        margin: 20px;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+}
+/* Add this to your existing styles.css file */
+
+/* Navbar Styles */
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-container h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    background: linear-gradient(135deg, #8B5CF6, #6D28D9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#userDisplay {
+    font-weight: 500;
+    color: #4B5563;
+    padding: 0.5rem 1rem;
+    background: #F3F4F6;
+    border-radius: 30px;
+    font-size: 0.95rem;
+}
+

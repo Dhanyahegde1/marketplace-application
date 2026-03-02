@@ -1,0 +1,104 @@
+.admin-section {
+    padding: 20px;
+}
+
+.action-buttons button {
+    margin: 10px;
+    padding: 10px 18px;
+    border: none;
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.box {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+}
+
+.box input {
+    display: block;
+    margin: 10px 0;
+    padding: 8px;
+    width: 250px;
+}
+/* Transaction Section Container */
+#transactionSection {
+    padding: 20px;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Title */
+#transactionSection h2 {
+    font-size: 26px;
+    color: #4B2E83;
+    margin-bottom: 15px;
+}
+
+/* Button */
+#transactionSection button {
+    background: linear-gradient(135deg, #4B2E83, #7B5CF5);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: 0.3s ease;
+}
+
+#transactionSection button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(75, 46, 131, 0.4);
+}
+
+/* Transaction Grid */
+#transactionList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+/* Transaction Card */
+#transactionList .card {
+    background: linear-gradient(135deg, #ffffff, #f5f3ff);
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    border-left: 5px solid #7B5CF5;
+    transition: 0.3s ease;
+}
+
+/* Hover Effect */
+#transactionList .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Card Text */
+#transactionList .card p {
+    margin: 6px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+#transactionList .card b {
+    color: #4B2E83;
+}
+
+/* Smooth Fade */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
